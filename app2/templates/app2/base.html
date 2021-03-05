@@ -1,0 +1,192 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+<!--        <meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+        <title>Reaction Power</title>
+<!--        <meta content="Admin Dashboard" name="description" />-->
+<!--        <meta content="Themesbrand" name="author" />-->
+<!--        <meta http-equiv="X-UA-Compatible" content="IE=edge" />-->
+
+        <!-- App Icons -->
+<!--        <link rel="shortcut icon" href="{% static 'assets/images/favicon.ico' %}">-->
+
+        <!--Morris Chart CSS -->
+        <link rel="stylesheet" href="{% static 'assets/plugins/morris/morris.css' %}">
+
+        <!-- Basic Css files -->
+        <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+        <link href="{% static 'assets/css/icons.css' %}" rel="stylesheet" type="text/css">
+        <link href="{% static 'assets/css/style.css' %}" rel="stylesheet" type="text/css">
+         <!-- DataTables -->
+        <link href="{% static 'assets/plugins/datatables/dataTables.bootstrap4.min.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'assets/plugins/datatables/buttons.bootstrap4.min.css' %}" rel="stylesheet" type="text/css" />
+        <!-- Responsive datatable examples -->
+        <link href="{% static 'assets/plugins/datatables/responsive.bootstrap4.min.css' %}" rel="stylesheet" type="text/css" />
+
+
+    </head>
+
+
+    <body class="fixed-left">
+
+        <!-- Loader -->
+        <div id="preloader"><div id="status"><div class="spinner"></div></div></div>
+
+        <!-- Begin page -->
+        <div id="wrapper">
+
+            <!-- ========== Left Sidebar Start ========== -->
+            <div class="left side-menu">
+
+                <!-- LOGO -->
+                <div class="topbar-left">
+                    <div class="">
+                        <!--<a href="index.html" class="logo text-center">Admiria</a>-->
+                        <a href="index.html" class="logo"><img src="assets/images/logo-sm.png" height="36" alt="logo"></a>
+                    </div>
+                </div>
+
+                <div class="sidebar-inner slimscrollleft">
+                    {% block sidebar %}
+                    {% include 'app2/partials/_sidebar.html' %}
+                    {% endblock sidebar %}
+
+                    <div class="clearfix"></div>
+                </div> <!-- end sidebarinner -->
+            </div>
+            <!-- Left Sidebar End -->
+
+
+            <!-- Start right Content here -->
+            <div class="content-page">
+                <!-- Start content -->
+                <div class="content">
+
+                    <!-- Top Bar Start -->
+                    <div class="topbar">
+
+                        <nav class="navbar-custom">
+                            <!-- Search input -->
+                            <div class="search-wrap" id="search-wrap">
+                                <div class="search-bar">
+                                    <input class="search-input" type="search" placeholder="Search" />
+                                    <a href="#" class="close-search toggle-search" data-target="#search-wrap">
+                                        <i class="mdi mdi-close-circle"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <ul class="list-inline float-right mb-0">
+                                <!-- Search -->
+
+                                <!-- Fullscreen -->
+                                <li class="list-inline-item dropdown notification-list hidden-xs-down">
+                                    <a class="nav-link waves-effect" href="#" id="btn-fullscreen">
+                                        <i class="mdi mdi-fullscreen noti-icon"></i>
+                                    </a>
+                                </li>
+                                <!-- language-->
+                                <li class="list-inline-item dropdown notification-list hidden-xs-down">
+                                    <a class="nav-link dropdown-toggle arrow-none waves-effect text-muted" data-toggle="dropdown" href="#" role="button"
+                                       aria-haspopup="false" aria-expanded="false">
+                                        English <img src="{% static 'assets/images/flags/us_flag.jpg' %}" class="ml-2" height="16" alt=""/>
+                                    </a>
+                                </li>
+                                <!-- notification-->
+
+                                <!-- User-->
+                                <li class="list-inline-item dropdown notification-list">
+                                    <a class="nav-link dropdown-toggle arrow-none waves-effect nav-user" data-toggle="dropdown" href="#" role="button"
+                                       aria-haspopup="false" aria-expanded="false">
+                                        <img src="{% static 'assets/images/users/avatar-1.jpg' %}" alt="user" class="rounded-circle">
+                                    </a>
+
+                                </li>
+                            </ul>
+
+                            <!-- Page title -->
+                            <ul class="list-inline menu-left mb-0">
+                                <li class="list-inline-item">
+                                    <button type="button" class="button-menu-mobile open-left waves-effect">
+                                        <i class="ion-navicon"></i>
+                                    </button>
+                                </li>
+                                <li class="hide-phone list-inline-item app-search">
+                                    <h3 class="page-title"></h3>
+                                </li>
+                            </ul>
+
+                            <div class="clearfix"></div>
+                        </nav>
+
+                    </div>
+                    <!-- Top Bar End -->
+
+                    <!-- ==================
+                         PAGE CONTENT START
+                   ================== -->
+
+                    <div class="page-content-wrapper">
+
+                        <div class="container-fluid">
+
+                            {% block value_boxes %}
+<!--                                Value Boxes here-->
+                            {% endblock value_boxes %}
+
+                            {% block mainpage %}
+<!--                            Main Page here-->
+                            {% endblock mainpage %}
+
+                        </div><!-- container -->
+
+                    </div> <!-- Page content Wrapper -->
+
+                </div> <!-- content -->
+
+                <footer class="footer">
+<!--                    © 2017 - 2019 Admiria <span class="text-muted d-none d-sm-inline-block float-right">Crafted with <i class="mdi mdi-heart text-danger"></i> by Themesbrand</span>-->
+                </footer>
+
+
+            </div>
+            <!-- End Right content here -->
+
+        </div>
+        <!-- END wrapper -->
+        <!-- jQuery  -->
+        <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+        <script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
+        <script src="{% static 'assets/js/modernizr.min.js' %}"></script>
+        <script src="{% static 'assets/js/jquery.slimscroll.js' %}"></script>
+        <script src="{% static 'assets/js/waves.js' %}"></script>
+        <script src="{% static 'assets/js/jquery.nicescroll.js' %}"></script>
+        <script src="{% static 'assets/js/jquery.scrollTo.min.js' %}"></script>
+
+        <!-- Peity chart JS -->
+        <script src="{% static 'plugins/peity-chart/jquery.peity.min.js' %}"></script>
+
+        <!--C3 Chart-->
+        <script src="{% static 'assets/plugins/d3/d3.min.js' %}"></script>
+        <script src="{% static 'assets/plugins/c3/c3.min.js' %}"></script>
+
+        <!-- KNOB JS -->
+        <script src="{% static 'assets/plugins/jquery-knob/excanvas.js' %}"></script>
+        <script src="{% static 'assets/plugins/jquery-knob/jquery.knob.js' %}"></script>
+
+        <script src="{% static 'assets/plugins/chart.js/chart.min.js' %}"></script>
+<!-- Peity chart JS -->
+        <script src="{% static 'assets/plugins/peity-chart/jquery.peity.min.js' %}"></script>
+
+
+        <!-- Page specific js -->
+        <script src="{% static 'assets/pages/dashboard.js' %}"></script>
+
+        <!-- App js -->
+        <script src="{% static 'assets/js/app.js' %}"></script>
+
+    </body>
+</html>

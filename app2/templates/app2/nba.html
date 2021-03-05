@@ -1,0 +1,109 @@
+{% extends 'app2/base.html' %}
+{% load static %}
+
+
+
+{% block mainpage %}
+ <div class="row">
+     <div class="col-xl-12">
+         <div class="row">
+             <div class="col-md-9 pr-md-0">
+                                            <div class="card m-b-20" style="height: auto;">
+                                                <div class="card-body">
+                                                    <h4 class="mt-0 header-title">What Next?</h4>
+                                                    <div class="text-center">
+                                                        <div class="btn-group m-t-20" role="group" aria-label="Basic example">
+                                                        </div>
+                                                    </div>
+                                                    <p>
+                                                         Here's your Social Media Action Plan based on the social
+                                                         media performance model deployed alongside this dashboard
+                                                         as of {% now "jS F Y H:i" %}
+                                                     </p>
+                                                    <p>
+    Our model provides you with optimum parameters to maximize user engagement on a daily basis.
+
+</p>
+                                                    <p>
+    Recommended post characteristics for higher fan base engagement.
+</p>
+                                                    <ul class="list-inline widget-chart m-t-20 m-b-15 text-center">
+                                                        <li class="list-inline-item">
+                                                            <h5 class="mb-0">{{bet_params.postlength}}</h5>
+                                                            <p class="text-muted font-14">Post Length</p>
+                                                        </li>
+                                                        <li class="list-inline-item">
+                                                            <h5 class="mb-0">{{bet_params.hashtags}}</h5>
+                                                            <p class="text-muted font-14">Hash Tags</p>
+                                                        </li>
+                                                        <li class="list-inline-item">
+                                                            <h5 class="mb-0">{{bet_params.mentions | safe }}</h5>
+                                                            <p class="text-muted font-14">Mentions</p>
+                                                        </li>
+
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+             <div class="col-md-3 pl-md-0">
+                                            <div class=" card m-b-20" style="height: auto;">
+                                                <div class="card-body">
+                                                    <div class="m-b-20">
+                                                        <p>Expected Engagemement</p>
+                                                        <h5>{{bet_params.engagement}}</h5>
+<!--                                                        <span class="peity-line" data-width="100%" data-peity='{ "fill": ["rgba(103,168,228,0.3)"],"stroke": ["rgba(103,168,228,0.8)"]}' data-height="60">6,2,8,4,3,8,1,3,6,5,9,2,8,1,4,8,9,8,2,1</span>-->
+                                                    </div>
+                                                    <div class="m-b-20">
+                                                        <hr>
+                                                        <p>Best Platform</p>
+                                                        <h5>{{bet_params.platform | title }}</h5>
+                                                        <hr>
+                                                        <p>Best Format</p>
+                                                        <h5>{{bet_params.format | safe  }}</h5>
+<!--                                                        <hr>-->
+<!--                                                        <span class="peity-line" data-width="100%" data-peity='{ "fill": ["rgba(74,193,142,0.3)"],"stroke": ["rgba(74,193,142,0.8)"]}' data-height="60">6,2,8,4,-3,8,1,-3,6,-5,9,2,-8,1,4,8,9,8,2,1</span>-->
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+         </div>
+     </div>
+ </div>
+<div class="row">
+    <div class="card m-b-20 col-xl-12">
+        <div class="card-header">
+            Best Options per Platform
+        </div>
+         <div class="card-body">
+             <table id="datatable" class="table table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
+                                                <thead>
+                                                <tr>
+                                                    <th>Account</th>
+                                                    <th>Format</th>
+                                                    <th>Post Length</th>
+                                                    <th>Hash Tags</th>
+                                                    <th>Mentions</th>
+                                                    <th>Expected Engagements</th>
+                                                </tr>
+                                                </thead>
+                                                    <tbody>
+                                                        {% for i in df %}
+                                                             <tr>
+                                                               <td> {{ i.Account }}</td>
+                                                               <td>{{ i.Format }}</td>
+                                                               <td>{{ i.PostLength }}</td>
+                                                               <td>{{ i.Hashtags }}</td>
+                                                               <td>{{ i.Mentions }}</td>
+                                                               <td>{{ i.Totalengagement }}</td>
+                                                             </tr>
+                                                        {% endfor  %}
+                                                   </tbody>
+                                            </table>
+         </div>
+
+<div>
+</div>
+
+
+{% endblock mainpage %}
